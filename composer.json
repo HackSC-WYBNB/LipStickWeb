@@ -1,0 +1,23 @@
+{
+    "name": "hacksc-wybnb/usersystem",
+    "description": "User System for HackSC Team WYBNB",
+    "type": "library",
+    "license": "MIT",
+    "require":{
+        "php": ">=7.4.0",
+        "thingengineer/mysqli-database-class": "dev-master"
+    },
+    "require-dev":{
+        "phpunit/phpunit": "^9"
+    },
+    "autoload":{
+        "psr-4":{
+            "HackSC\\": "src/"
+        }
+    },
+    "autoload-dev":{
+        "psr-4":{
+            "HackSCTest\\": "test/"
+        }
+    }
+}
