@@ -11,8 +11,13 @@ body {
   background-color: #f5f5f5;
 }
 
-.test-center {
+.text-center {
   text-align: center!important;
+}
+
+.text-link {
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .form-signin {
