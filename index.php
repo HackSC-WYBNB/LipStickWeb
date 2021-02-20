@@ -31,7 +31,10 @@ use HackSC\UserSystem;
                 </button>
                 <button onclick="window.location.href = './signin.php'" class="button">
                     <i class="iconfont icon-touxiang"></i>
-                </button>                
+                </button>       
+                <button class="button">
+                    <i class="iconfont icon-sign-out"></i>
+                </button>           
             </div>
         </div>
         <div class="box">
