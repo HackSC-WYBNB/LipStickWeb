@@ -4,16 +4,10 @@ namespace HackSC;
 use MysqliDb;
 
 class UserSystem{
-    const DBName = 'hacksc';
-    const HOST = '127.0.0.1';
-    const PORT = 3306;
-    const USERNAME = 'hacksc';
-    const PASSWORD = '123456';
-
     public static ?MysqliDb $database = null;
     public static bool $iscurrentSessionLogin = false;
     public static function connect() : void{
-        self::$database = new MysqliDb(self::HOST,self::USERNAME,self::PASSWORD,self::DBName,self::PORT);
+        self::$database = new MysqliDb(Setting::HOST,Setting::USERNAME,Setting::PASSWORD,Setting::DBName,Setting::PORT);
     }
 
     public static function isUser(string $email) : bool{
