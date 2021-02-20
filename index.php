@@ -21,7 +21,9 @@ use HackSC\UserSystem;
             <div class="icon">
                 <img src="img/lipstickLogo.png" alt="lipstick icon" height="50">
                 <div class="title">LIPSTICK STORE</div>
+                <div class="nav-items"><a href="list.php">Lipstick Lists</a></div>
             </div>
+            
             <div class="menu">
                 <button class="button">
                     <i class="iconfont icon-chaxun"></i>
