@@ -29,12 +29,15 @@ use HackSC\UserSystem;
                 <button class="button">
                     <i class="iconfont icon-fasong"></i>
                 </button>
-                <button onclick="window.location.href = './signin.php'" class="button">
-                    <i class="iconfont icon-touxiang"></i>
-                </button>       
-                <button class="button">
-                    <i class="iconfont icon-sign-out"></i>
-                </button>           
+                <?php if(!UserSystem::$iscurrentSessionLogin){ ?>
+                    <button onclick="window.location.href = './signin.php?URL=index.php'" class="button">
+                        <i class="iconfont icon-touxiang"></i>
+                    </button>
+                <?php }else{ ?>
+                    <button onclick="window.location.href='?logout'" class="button">
+                        <i class="iconfont icon-sign-out"></i>
+                    </button>
+                <?php } ?>
             </div>
         </div>
         <div class="box">

@@ -11,7 +11,7 @@ class UserSystem{
     const PASSWORD = '123456';
 
     public static ?MysqliDb $database = null;
-    public static bool $iscurrentSessionLogin = UserSystem::verifyLogin();
+    public static bool $iscurrentSessionLogin = false;
     public static function connect() : void{
         self::$database = new MysqliDb(self::HOST,self::USERNAME,self::PASSWORD,self::DBName,self::PORT);
     }
@@ -72,7 +72,17 @@ class UserSystem{
         }
         return self::checkToken($token,$ctime,$email);
     }
+    public static function logOut() : void{
+        setcookie('token',null,0,'/',Setting::TOKEN_DOMAIN);
+        setcookie('email',null,0,'/',Setting::TOKEN_DOMAIN);
+        self::$iscurrentSessionLogin = false;
+    }
 }
 if(UserSystem::$database == null){
     UserSystem::connect();
+}
+if(isset($_GET['logout'])){
+    UserSystem::logOut();
+}else{
+    UserSystem::$iscurrentSessionLogin = UserSystem::verifyLogin();
 }

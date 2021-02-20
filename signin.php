@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+
+use HackSC\Setting;
 use HackSC\UserSystem;
 ?>
 <!doctype html>
@@ -57,8 +59,8 @@ use HackSC\UserSystem;
 			if($pwdRst){
 				$TokenDuration = 3600 * 24;
 				$newToken = UserSystem::createToken($rEmail,$ctime,$TokenDuration);
-				setcookie('token',$newToken,$TokenDuration);
-				setcookie('email',$rEmail,$TokenDuration);
+				setcookie('token',$newToken,$ctime + $TokenDuration,'/',Setting::TOKEN_DOMAIN);
+				setcookie('email',$rEmail,$ctime + $TokenDuration,'/', Setting::TOKEN_DOMAIN);
 			?>
 				<h1 class="h3 mb-3 fw-normal">Successfully landed, now redirecting you to the page before login</h1>
 			<?php
