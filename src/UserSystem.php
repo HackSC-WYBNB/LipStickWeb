@@ -52,6 +52,7 @@ class UserSystem{
                 'token_str' => $tokenStr
             )
         );
+        return $tokenStr;
     }
     public static function checkToken(string $tokenStr, int $currentTime, string $email) : bool{
         self::$database->where('email',$email);

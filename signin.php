@@ -1,3 +1,7 @@
+<?php
+require __DIR__ . '/vendor/autoload.php';
+use HackSC\UserSystem;
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,13 +20,20 @@
 	  <div>
 	  	<h1 class="h1 mb-4 fw-normal">Welcome to HackSC!</h1>
 	  </div>
-	  <form>
+	  
+	  <?php
+	  	$rEmail = $_POST['email'];
+		$rPassword = $_POST['password'];
+		$jumpBack = $_GET['URL'];
+		if(empty($rEmail && empty($rPassword))){
+	  ?>
+	  <form action="" method="post">
 	    <img class="mb-4" src="" alt="" width="72" height="57">
 	    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 	    <label for="inputEmail" class="visually-hidden">Username</label>
-	    <input type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+	    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
 	    <label for="inputPassword" class="visually-hidden">Password</label>
-	    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+	    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 	    <div class="checkbox mb-3">
 	      <label>
 	        <input type="checkbox" value="remember-me"> Remember me
@@ -34,6 +45,24 @@
 		</p>
 	    <p class="mt-5 mb-3 text-muted">&copy; 2021.2.19</p>
 	  </form>
+	  <?php
+		}else{
+			if(empty($jumpBack)){
+				$jumpBack = "dashboard.php";
+			}
+			$pwdRst = UserSystem::checkPassword($rEmail,$rPassword);
+			$ctime = time();
+			if($pwdRst){
+				$TokenDuration = 3600 * 24;
+				$newToken = UserSystem::createToken($rEmail,$ctime,$TokenDuration);
+				setcookie('token',$newToken,$TokenDuration);
+			?>
+				<h1 class="h3 mb-3 fw-normal">Successfully landed, now redirecting you to the page before login</h1>
+			<?php
+				echo "<script type='text/javascript'>window.location.href='$jumpBack'</script>";
+			}
+		}
+	  ?>
 	</main>
   </body>
 </html>
