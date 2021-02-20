@@ -62,6 +62,10 @@ body {
   margin-right: 0;
 }
 
+.cell{
+  list-style:none;
+}
+
 .library .grid{
   padding:0;
   align-items: flex-start;
@@ -84,7 +88,6 @@ body {
 .image{
   position:relative;
   overflow:hidden;
-  background-color:transparent;
   margin: 0;
   padding: 0;
   border: 0;
@@ -93,6 +96,22 @@ body {
   background: 0 0;
   box-sizing: border-box;
   display: block;
+}
+
+.o1{
+  background:rgba(231, 28, 28, 0.808);
+}
+
+.o2{
+  background:rgba(133, 28, 231, 0.808);
+}
+
+.o3{
+  background:rgba(195, 104, 43, 0.808);
+}
+
+.o4{
+  background:rgba(219, 44, 44, 0.897);
 }
 
 .image img{
@@ -130,6 +149,9 @@ body {
 
 
 @media (min-width:840px){
+  .image{
+    height:30vw;
+  }
   .grid {
     grid-template-columns: repeat(12,minmax(0,1fr));    
   }
@@ -152,6 +174,9 @@ body {
 
 @media (min-width: 240px) and (max-width: 839px)
 {
+  .image{
+    height:40vw;
+  }
   .title{
     display:none;
     width:0px;
