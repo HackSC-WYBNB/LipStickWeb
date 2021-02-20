@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "19918016",
+      "name": "chaxun",
+      "font_class": "chaxun",
+      "unicode": "e6dc",
+      "unicode_decimal": 59100
+    },
+    {
+      "icon_id": "19918020",
+      "name": "fasong",
+      "font_class": "fasong",
+      "unicode": "e6dd",
+      "unicode_decimal": 59101
+    },
+    {
+      "icon_id": "19918036",
+      "name": "touxiang",
+      "font_class": "touxiang",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    }
+  ]
+}
