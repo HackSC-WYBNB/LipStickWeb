@@ -1,3 +1,7 @@
+<?php
+include __DIR__ . '/vendor/autoload.php';
+use HackSC\UserSystem;
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,9 +19,11 @@
   <body>
       <div class="header">
             <div class="icon">
-                <img src="img/口红.png" alt="lipstick icon" height="50">
+                <img src="img/lipstickLogo.png" alt="lipstick icon" height="50">
                 <div class="title">LIPSTICK STORE</div>
+                <div class="nav-items"><a href="list.php">Lipstick Lists</a></div>
             </div>
+            
             <div class="menu">
                 <button class="button">
                     <i class="iconfont icon-chaxun"></i>
@@ -25,9 +31,15 @@
                 <button class="button">
                     <i class="iconfont icon-fasong"></i>
                 </button>
-                <button onclick="window.location.href = './signin.php'" class="button">
-                    <i class="iconfont icon-touxiang"></i>
-                </button>                
+                <?php if(!UserSystem::$iscurrentSessionLogin){ ?>
+                    <button onclick="window.location.href = './signin.php?URL=index.php'" class="button">
+                        <i class="iconfont icon-touxiang"></i>
+                    </button>
+                <?php }else{ ?>
+                    <button onclick="window.location.href='?logout'" class="button">
+                        <i class="iconfont icon-sign-out"></i>
+                    </button>
+                <?php } ?>
             </div>
         </div>
         <div class="box">
@@ -38,21 +50,24 @@
                 </p>
                 <button onclick="window.location.href = './signup.php'" class="signup lead">
                     SignUp now!
-                </button>                 
+                </button>
             </div>
-            <div class= "right">
-
+            <div class= "right" style="background:url(img/main.jpg);background-size:100%;
+            background-position:center;">
+                <!-- <div id="mainpic">
+                    <img src="img/main.jpg" style="width:580px;">
+                </div> -->
             </div>
         </div>
         <div class="box">
-            <div class="left1" style="background:url(img/office.jpg);background-size:100%;background-repeat:no-repeat;">
+            <div class="left1" style="background:url(img/office.jpg);background-size:100%;
+            background-position:center;">
                 <h1 class="limited">Limited Offer</h1>
-                <p class="office lead">Check out Microsoft Office lasteset Limited Lipsticks Pack!
-                </p>              
+                <p class="office lead">Check out Microsoft Office Limited Lipsticks!</p>              
             </div>
             <div class= "right1">
-
             </div>
         </div>
+        
   </body>
 </html>

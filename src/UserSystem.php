@@ -4,15 +4,10 @@ namespace HackSC;
 use MysqliDb;
 
 class UserSystem{
-    const DBName = 'hacksc';
-    const HOST = '127.0.0.1';
-    const PORT = 3306;
-    const USERNAME = 'hacksc';
-    const PASSWORD = '123456';
-
     public static ?MysqliDb $database = null;
+    public static bool $iscurrentSessionLogin = false;
     public static function connect() : void{
-        self::$database = new MysqliDb(self::HOST,self::USERNAME,self::PASSWORD,self::DBName,self::PORT);
+        self::$database = new MysqliDb(Setting::HOST,Setting::USERNAME,Setting::PASSWORD,Setting::DBName,Setting::PORT);
     }
 
     public static function isUser(string $email) : bool{
@@ -62,7 +57,26 @@ class UserSystem{
         $count = self::$database->getValue('tokens','count(*)');
         return $count >= 1;
     }
+    public static function verifyLogin() : bool{
+        $ctime = time();
+        $token = $_COOKIE['token'];
+        $email = $_COOKIE['email'];
+        if(empty($token) && empty($email)){
+            return false;
+        }
+        return self::checkToken($token,$ctime,$email);
+    }
+    public static function logOut() : void{
+        setcookie('token',null,0,'/',Setting::TOKEN_DOMAIN);
+        setcookie('email',null,0,'/',Setting::TOKEN_DOMAIN);
+        self::$iscurrentSessionLogin = false;
+    }
 }
 if(UserSystem::$database == null){
     UserSystem::connect();
+}
+if(isset($_GET['logout'])){
+    UserSystem::logOut();
+}else{
+    UserSystem::$iscurrentSessionLogin = UserSystem::verifyLogin();
 }

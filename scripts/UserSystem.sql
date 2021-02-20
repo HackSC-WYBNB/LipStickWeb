@@ -11,3 +11,8 @@ CREATE TABLE IF NOT EXISTS `tokens` (
     `expires` INT UNSIGNED NOT NULL,
     PRIMARY KEY ( `token_str` )
 )ENGINE=InnoDB CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `photos` (
+    `email` VARCHAR(50) NOT NULL,
+    `photo` BLOB NOT NULL
+);
