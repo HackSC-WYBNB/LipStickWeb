@@ -4,13 +4,13 @@ namespace HackSC;
 use MysqliDb;
 
 class UserSystem{
-    const DBName = '';
+    const DBName = 'hacksc';
     const HOST = '127.0.0.1';
     const PORT = 3306;
-    const USERNAME = '';
-    const PASSWORD = '';
+    const USERNAME = 'hacksc';
+    const PASSWORD = '123456';
 
-    public static MysqliDb $database;
+    public static ?MysqliDb $database = null;
     public static function connect() : void{
         self::$database = new MysqliDb(self::HOST,self::USERNAME,self::PASSWORD,self::DBName,self::PORT);
     }
@@ -32,6 +32,7 @@ class UserSystem{
                 'password' => hash('sha256',$password)
             )
         );
+        return true;
     }
     public static function checkPassword(string $email, string $password) : bool{
         if(!self::isUser($email)){
@@ -61,4 +62,7 @@ class UserSystem{
         $count = self::$database->getValue('tokens','count(*)');
         return $count >= 1;
     }
+}
+if(UserSystem::$database == null){
+    UserSystem::connect();
 }

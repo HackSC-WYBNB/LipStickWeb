@@ -25,7 +25,7 @@ use HackSC\UserSystem;
 	  	$rEmail = $_POST['email'];
 		$rPassword = $_POST['password'];
 		$jumpBack = $_GET['URL'];
-		if(empty($rEmail && empty($rPassword))){
+		if(empty($rEmail) && empty($rPassword)){
 	  ?>
 	  <form action="" method="post">
 	    <img class="mb-4" src="" alt="" width="72" height="57">
@@ -47,6 +47,8 @@ use HackSC\UserSystem;
 	  </form>
 	  <?php
 		}else{
+			$rEmail = trim($rEmail);
+			$rPassword = trim($rPassword);
 			if(empty($jumpBack)){
 				$jumpBack = "dashboard.php";
 			}

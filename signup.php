@@ -1,3 +1,7 @@
+<?php
+require __DIR__ . '/vendor/autoload.php';
+use HackSC\UserSystem;
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,18 +20,43 @@
 	  <div>
 	  	<h1 class="h1 mb-4 fw-normal">Welcome to HackSC!</h1>
 	  </div>
-	  <form>
+	  <?php
+		$rEmail = $_POST['email'];
+		$rPassword = $_POST['password'];
+		$ignoreForm = true;
+		$formMsg = "";
+		if(empty($rEmail) && empty($rPassword)){
+			$ignoreForm = false;
+		}else{
+			$rEmail = trim($rEmail);
+			$rPassword = trim($rPassword);
+			$signupRst = UserSystem::register($rEmail,$rPassword);
+			if(!$signupRst){
+				$ignoreForm = false;
+				$formMsg = "there is an existing user with email " . $rEmail;
+			}
+		}
+		if(!$ignoreForm){
+	  ?>
+	  <form target="" method="post">
 	    <img class="mb-4" src="" alt="" width="72" height="57">
 	    <h1 class="h3 mb-3 fw-normal">Create account</h1>
 	    <label for="inputEmail" class="visually-hidden">Email address</label>
-	    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-	    <label for="inputEmail" class="visually-hidden">Username</label>
-	    <input type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+	    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 	    <label for="inputPassword" class="visually-hidden">Password</label>
-	    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+	    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 	    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
 	    <p class="mt-5 mb-3 text-muted">&copy; 2021.2.19</p>
 	  </form>
+	  <?php
+		}else{
+	  ?>
+	  <img class="mb-4" src="" alt="" width="72" height="57">
+	  <h1 class="h3 mb-3 fw-normal">Create account</h1>
+	  <p class="mb-3 fw-normal">Account created, now you can <a href="signin.php">Signin</a></p>
+	  <?php
+		}
+	  ?>
 	</main>
   </body>
 </html>

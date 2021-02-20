@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE TABLE IF NOT EXISTS `tokens` (
     `email` VARCHAR(50) NOT NULL,
     `token_str` CHAR(32) NOT NULL,
-    `issued` UNSIGNED INT NOT NULL,
-    `expires` UNSIGNED INT NOT NULL,
+    `issued` INT UNSIGNED NOT NULL,
+    `expires` INT UNSIGNED NOT NULL,
     PRIMARY KEY ( `token_str` )
 )ENGINE=InnoDB CHARSET=utf8;
