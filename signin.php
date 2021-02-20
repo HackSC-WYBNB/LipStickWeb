@@ -52,7 +52,7 @@ use HackSC\UserSystem;
 			$rEmail = trim($rEmail);
 			$rPassword = trim($rPassword);
 			if(empty($jumpBack)){
-				$jumpBack = "dashboard.php";
+				$jumpBack = "index.php";
 			}
 			$pwdRst = UserSystem::checkPassword($rEmail,$rPassword);
 			$ctime = time();

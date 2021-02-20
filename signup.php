@@ -56,7 +56,7 @@ use HackSC\UserSystem;
 	  ?>
 	  <img class="mb-4" src="./img/lipstickLogo.png" alt="" width="72" height="57">
 	  <h1 class="h3 mb-3 fw-normal">Create account</h1>
-	  <p class="mb-3 fw-normal">Account created, now you can <a href="signin.php">Signin</a></p>
+	  <p class="mb-3 fw-normal">Account created, now you can <a href="signin.php<?php if(isset($_GET['URL'])){ echo "?URL=" . $_GET['URL']; } ?>">Signin</a></p>
 	  <?php
 		}
 	  ?>
