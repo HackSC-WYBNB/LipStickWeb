@@ -92,7 +92,7 @@ body {
 .box .left1{
   background-image: url(img/offic.jpg);
   width:50%;
-  height:auto;
+  height:min-content;
   background-color:rgba(79, 209, 79, 0.856);
   padding:0px;
   float:left;
@@ -117,4 +117,12 @@ body {
   font-size: 32px;
   font-weight:600;
   margin: 49% 0 1% 48px;
+}
+
+#mainpic {
+  vertical-align: middle;
+  align-self: center;
+  margin:16px;
+  padding: 0 25% 0 25%;
+  width:auto;
 }
