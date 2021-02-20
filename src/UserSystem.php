@@ -11,6 +11,7 @@ class UserSystem{
     const PASSWORD = '123456';
 
     public static ?MysqliDb $database = null;
+    public static bool $iscurrentSessionLogin = UserSystem::verifyLogin();
     public static function connect() : void{
         self::$database = new MysqliDb(self::HOST,self::USERNAME,self::PASSWORD,self::DBName,self::PORT);
     }
@@ -61,6 +62,15 @@ class UserSystem{
         self::$database->where('token_str',$tokenStr);
         $count = self::$database->getValue('tokens','count(*)');
         return $count >= 1;
+    }
+    public static function verifyLogin() : bool{
+        $ctime = time();
+        $token = $_COOKIE['token'];
+        $email = $_COOKIE['email'];
+        if(empty($token) && empty($email)){
+            return false;
+        }
+        return self::checkToken($token,$ctime,$email);
     }
 }
 if(UserSystem::$database == null){

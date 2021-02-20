@@ -1,3 +1,7 @@
+<?php
+include __DIR__ . '/vendor/autoload.php';
+use HackSC\UserSystem;
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -38,7 +42,7 @@
                 </p>
                 <button onclick="window.location.href = './signup.php'" class="signup lead">
                     SignUp now!
-                </button>                 
+                </button>
             </div>
             <div class= "right" style="background:url(img/main.jpg);background-size:100%;
             background-position:center;">
