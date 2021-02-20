@@ -92,11 +92,11 @@ body {
 .box .left1{
   background-image: url(img/offic.jpg);
   width:50%;
-  height:min-content;
+  height:500px;
   background-color:rgba(79, 209, 79, 0.856);
   padding:0px;
   float:left;
-  
+  position:relative;
 }
 
 .box .right1{
@@ -108,18 +108,22 @@ body {
 
 .office{
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  position:absolute;
+  bottom: 2%;
   font-size:24px;
-  margin:1% 0px 1% 48px;
+  margin:0 0 0 48px;
 }
 
 .limited{
   font-family:Georgia, 'Times New Roman', Times, serif;
+  position:absolute;
+  bottom: 9%;
   font-size: 32px;
   font-weight:600;
-  margin: 49% 0 1% 48px;
+  margin: 0 0 0 48px;
 }
 
-#mainpic {
+#mainpic{
   vertical-align: middle;
   align-self: center;
   margin:16px;
