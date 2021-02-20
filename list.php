@@ -1,3 +1,7 @@
+<?php
+include __DIR__ . '/vendor/autoload.php';
+use HackSC\UserSystem;
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,12 +30,15 @@
             <button class="button">
                 <i class="iconfont icon-fasong"></i>
             </button>
-            <button onclick="window.location.href = './signin.php'" class="button">
+            <?php if(!UserSystem::$iscurrentSessionLogin){ ?>
+            <button onclick="window.location.href = './signin.php?URL=list.php'" class="button">
                 <i class="iconfont icon-touxiang"></i>
-            </button>        
-            <button class="button">
+            </button>
+            <?php }else{ ?>
+            <button onclick="window.location.href = '?logout'" class="button">
                 <i class="iconfont icon-sign-out"></i>
-            </button>          
+            </button>
+            <?php } ?>
         </div>
     </div>
     <div class="library">
