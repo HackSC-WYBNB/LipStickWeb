@@ -1,10 +1,10 @@
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1613802668010'); /* IE9 */
-  src: url('iconfont.eot?t=1613802668010#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAP4AAsAAAAACDQAAAOpAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDFAqDfINPATYCJAMQCwoABCAFhG0HRBs1BxHVmyfJfh5kZ4vTWadezES+ivbR2O9BgHVVpZMZL6UDgZ/k3yIAyu9/c66pJ6Mi1EjOPnn0haQdZpdm8AZcTn+K/1dnb7msOfApegwwjsLA9vQl3AbFhrGbCBriaQjAjC/RiOLSOk0wogCTBCD69OzeEWPGi2oQC4wI9BUrFWIBOozaTO0aMJ//XnwlURhBQycBZzXoVtKF/A/PPryUE2omtJFTmDRdGDDWgQSiAQWiQ2W0FTKqRiMxe4cpYgE9CoH24fmHlzWZUsO9sE3d9v94GhKEHmC1ymyyRV6VDgsQ8OG5AA0+vPQiZVqNNwIGYBnwRWK9r6WhId2sGdLRwzr6/v2m9+81abp05Y4trq7N7r1q9uBJ84cPm96716RSJS7R/MGD0UtdaLPiRKhrJ5ov3+risnSFs3OTJVu27XJ1lW7OE93Ufsvdug9ounSns/OSHcNVpQPWrXZzG739aJMuHcdeNWHFllnbVokHD5otW7f7eKvZzGZfr3Z5+LT5nQfzXd7z8ISxXJuYOiBpoPeveh2rq3b7tfz7qElVVf8WjtYRdYc2bC3CZkbNeLp5fqMF8sIFbQFMXzi/QCb0+ce+QN7kTr1tTXU+hbUb2GB3303tCh9ePFUyJ2Z3k+ltL925Gu5nsGpKJ11V5PCjn/YtWhj8z2BnyJ3wasD1ZNm9w/4rQ9InOdeurLPr1PexHYl/PXNg2bh3TLNsznTL3GxhYK+zbTM/D4g1VH3vJebN1vWk1/TFPY12R9Svn+poh93E9tO6dWnvIlakrZrYqmHjctG+vShXVFRNjEk/BgA1X1Lif5mreAo5pQaYd8n2Cf95FAsLM7e1t8v+b7Q8a+FZs+u7Ff2w5imAEQ066/6qRU1KNPoG4FXKddd8wWSVtSaIK7LfT1kDzLAANYCkIy+msLksoKVxIy4JNAz4QGIkmFRsNHRYSIYeI3kwE0XZegtODEIilAmIZKoEgT37oWHLeUjsuU4q9jl0uPIdeuyFhJlmwmlHC6FCby9XQaPowf6hdTwRCuhFiF8YlsFI2sC5H0pqC1DlZb7xxAllijlpDbUqAQmP8JDOw2FgmIU7dJpH1bkpCqq6U+54zC5cBY2iB/uH1vFEtL1eCt9/YVgGIw2SnvIPJbW9Q5WXHcindeokuZX+aQ21KqnjSHiEhxzGAVYZ5uphHTrN44Dy3BRKK+pqzZe3j2+4AzADbqGEJqRQQsehczT7Mh3IJJ7CSXnZWzOFLAMAAAA=') format('woff2'),
-  url('iconfont.woff?t=1613802668010') format('woff'),
-  url('iconfont.ttf?t=1613802668010') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  url('iconfont.svg?t=1613802668010#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1613821677258'); /* IE9 */
+  src: url('iconfont.eot?t=1613821677258#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAASsAAsAAAAACSQAAAReAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDKgqFRIRlATYCJAMUCwwABCAFhG0HTxvwB8gOJSHBwGBgABRgPDw/jvfchw8oge1PaY5MC8mMcJJCUd36SjRL2PB5+i+zsjkTXQwqkixVujSdpC+dxJvk2/A/9/N1eXxgee3ZXDLC1jbAAQ4HFlEaJdJfGP8wdnEZmwm0mOAB2piUwQBqCq1XIA4QOAeoxVRKCSE0SRtyJhZxAyhrStcUrgHguvv38Q/4hRpJzbSttu1K5IOYn00fXiq2brcqyZ2gvT8DmGlkLAIKsS/XtIOiH1qkqEVKVLIK0KQbEn2Fnn94ub2Ncc84a2GWilrQP7wkK0QDTdQGJWuxsOwZ20QIfj5DSPx8jpD5+ZJzU0QVdW9BM14BEEsAPylK+jJ5yBXWClU0MNNqYE337201ZmrZxH3G2ozJuAGYPTPPiA8B4I6RzrSJ8gysO2UM8o5+AIIenXPS2XnGVGnurKPunvMWUNv+hvv3mffvMZhTc3t3mpiw7r1iPXjCfviQee8eg014+JD94EFD04NKHpxwMuEC9v1dxsZTs0ZGjMmdu/ebmCjCRm2w2WwGxqXMqX1GRpN729MzWywvwHDDnqMMPqfrSa2zO/t3z0MPHrCmlw8cLxpMoCFzcJ2HT9l3Hgy3SGjVzOTUrJmdWV9pqYuOgbn+LReP3xdfw2J2aoqlVvZQ21ZHoD7qNqq+33YIdGzN5RzduV/zv+Z097uMnAcA8+etTeBaW5DUv8ryVxZna/OATeHfR4zNTbLAQKs2U55bDDn3ufc+3TGSN6p44YLCqO64cH5UMcSef+4LIPoCV6ijvumTc1lVzgHxelncw4unEgc9DzB6Si/duepio6qVSs0DSm41Rz8dHh9z+Keq27i69ZX0eoAiXnHkCh3SbpS+kbH/1PcmDvD50leV3PwOdGvuCIPDdmiCo/vOloZ9lnqpbn4XQMMDygQQXJkg1HRfKP36qXS0xmLQ49PKy8HvXGeD59uKcvNToPJyKAXRbYbFC5cFtQD+v1JcU0S2v2w3Fyif3d507SBf3NYEz6Dk7NfTyfIzcma5bsR/Nc07533Phr8jTjvzRQA+AXZt9reiKKAEtc2TuZq6FlGolGGiN7ttC1TrKF5bAy26lm8kRo8X/Yj7R2HZlib9ISSNxiFrMoku+EWoWi2DBk3WQIsFydNb9aIoitKMeV0AQpcjkHR4CVmX6+iCfw7VgO/QoCsUocX2MFyw1XQQGvEUyqFRPsKtQwgeKcEMLa3hZeehuFzEoaJcl8hCKRnhRXy9fJLRZFSCUn0MkVXjfjSNIRhFipEksB0qEpGIlCIFKI/2qqRpaZi3N5Z3Ji8eKQYaNqCgOGgoPgRXHQSBhySB2bVpGqnf50Hh5EQ4qJKyEi0LiiJDNI7w5cWnBjpZJKlVdi7NZarh/NBoGO6GoZDEEEnQgBLpIRJCmt9OAMVD81LZIiAVxhtVw+qKvMaXiK8x+2etqJ24RoocJWo0aDpO4BJPUk6r8Co5tXKJCsaRkRJcjSbltQRHggMAAAA=') format('woff2'),
+  url('iconfont.woff?t=1613821677258') format('woff'),
+  url('iconfont.ttf?t=1613821677258') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1613821677258#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -13,6 +13,17 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sign-out:before {
+  content: "\e67d";
+  color: black;
+  font-size: 34px;
+}
+
+.icon-sign-out:hover {
+  transition: color 0.3s;
+  color:gray;
 }
 
 .icon-chaxun:before {
@@ -41,4 +52,3 @@
   transition: color 0.3s;
   color:gray;
 }
-

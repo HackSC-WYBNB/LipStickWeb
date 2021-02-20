@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "15838529",
+      "name": "sign-out",
+      "font_class": "sign-out",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
       "icon_id": "19918016",
       "name": "chaxun",
       "font_class": "chaxun",
