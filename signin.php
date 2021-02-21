@@ -3,7 +3,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use HackSC\Setting;
 use HackSC\UserSystem;
-error_reporting(E_ALL);
+error_reporting(E_ERROR);
 ini_set("display_errors", 1);
 ?>
 <!doctype html>

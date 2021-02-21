@@ -4,7 +4,8 @@ include __DIR__ . '/vendor/autoload.php';
 use HackSC\Makeup;
 use HackSC\UserSystem;
 use HackSC\PhotoStorage;
-
+error_reporting(E_ERROR);
+ini_set("display_errors", 1);
 if(!UserSystem::$iscurrentSessionLogin){
   header('Location: signin.php?URL=user.php',true,302);
   echo("<script>window.location.href='signin.php?URL=user.php';</script>");

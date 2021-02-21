@@ -3,6 +3,8 @@ include __DIR__ . '/vendor/autoload.php';
 use HackSC\LipStick;
 use HackSC\LipSticks;
 use HackSC\UserSystem;
+error_reporting(E_ERROR);
+ini_set("display_errors", 1);
 if(!UserSystem::$iscurrentSessionLogin){
     header('Location: signin.php?URL=try_lipstick.php',true,302);
     echo("<script>window.location.href='signin.php?URL=try_lipstick.php';</script>");
