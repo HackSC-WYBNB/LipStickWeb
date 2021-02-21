@@ -66,8 +66,8 @@ class UserSystem{
         return $_COOKIE['email'];
     }
     public static function logOut() : void{
-        setcookie('token',null,0,'/',Setting::TOKEN_DOMAIN);
-        setcookie('email',null,0,'/',Setting::TOKEN_DOMAIN);
+        setcookie('token',null,0,'/',Setting::$TOKEN_DOMAIN);
+        setcookie('email',null,0,'/',Setting::$TOKEN_DOMAIN);
         self::$iscurrentSessionLogin = false;
     }
 }
