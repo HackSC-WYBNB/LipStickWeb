@@ -23,7 +23,7 @@ if(!UserSystem::$iscurrentSessionLogin){
             <input type="number" name="r" value="<?php echo (empty($_POST['r']) ? 255 : intval($_POST['r'])); ?>" placeholder="R Value"></input>
             <input type="number" name="g" value="<?php echo (empty($_POST['g']) ? 0 : intval($_POST['g'])); ?>" placeholder="G Value"></input>
             <input type="number" name="b" value="<?php echo (empty($_POST['b']) ? 0 : intval($_POST['b'])); ?>" placeholder="B Value"></input>
-            <input type="number" name="a" value="<?php echo (empty($_POST['a']) ? 120 : intval($_POST['a'])); ?>" placeholder="A Value"></input>
+            <input type="number" name="a" value="<?php echo (empty($_POST['a']) ? 180 : intval($_POST['a'])); ?>" placeholder="A Value"></input>
             <?php if(!empty($_POST['lipstick'])){ ?>
                 <input type="hidden" name="lipstick" value="<?php echo $_POST['lipstick']; ?>" />
             <?php } ?>
@@ -63,8 +63,11 @@ if(!UserSystem::$iscurrentSessionLogin){
                     }else{
                         $webRGBA = $uploadedRGBA;
                         $webRGBA[3] /= 255.0;
+                        $backgroundAfterColor = 'rgba(' . implode(',',$webRGBA) . ')';
+                        $webRGBA[3] = 1.0;
                         $backgroundColor = 'rgba(' . implode(',',$webRGBA) . ')';
                         echo '<div style="width:50px;height:50px;display:box;background-color:' . $backgroundColor . ';"></div>';
+                        echo '<div style="width:50px;height:50px;display:box;background-color:' . $backgroundAfterColor . ';"></div>';
                         $uploadedPhoto = PhotoStorage::getUserImage(UserSystem::getCurrentLoginEmail());
                         showImage($uploadedPhoto,$uploadedRGBA,"http://localhost:5000/");
                     }
