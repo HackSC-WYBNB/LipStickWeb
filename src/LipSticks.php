@@ -5,7 +5,7 @@ class LipSticks{
     public static ?array $parsedLipSticks = null;
     public static function getLipstickLists() : array{
         if(empty(self::$lipStickData)){
-            self::$lipStickData = json_decode(file_get_contents(__DIR__ . '/../data/lipstick_zhcn.json'),true);
+            self::$lipStickData = json_decode(file_get_contents(__DIR__ . '/../data/lipstick_enus.json'),true);
         }
         if(!empty(self::$parsedLipSticks)){
             return self::$parsedLipSticks;
