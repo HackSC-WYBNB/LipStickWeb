@@ -20,7 +20,15 @@ class Makeup{
             return null;
         }
     }
-    public static function imageAsTag($imageB64){
-        return '<img src="data:image/jpeg;base64, ' . $imageB64 . '" />';
+    public static function imageAsTag($imageB64, $maxWidth = null, $maxHeight = null){
+        $style = "";
+        if(!empty($maxWidth)){
+            $style .= "max-width: " . $maxWidth . ";";
+        }
+        if(!empty($maxHeight)){
+            $style .= "max-height: " . $maxHeight . ';';
+        }
+        $tag = '<img src="data:image/jpeg;base64, ' . $imageB64 . '" style="' . $style . '" />';
+        return $tag;
     }
 }

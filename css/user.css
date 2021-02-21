@@ -113,6 +113,15 @@ body {
   display:table-cell
 }
 
+.right p.lead{
+  font-family: sans-serif;
+  font-size: 2rem;
+  text-align: left;
+  font-weight: 400;
+  margin: 20px 0;
+  display: block;
+}
+
 .port{
   text-align: left;
   margin:0 auto;
