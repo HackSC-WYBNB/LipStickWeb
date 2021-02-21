@@ -31,6 +31,34 @@ body {
   font-size: 32px;
   font-weight:bolder;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-right: 3px solid #000;
+}
+
+.nav-items{
+  display:inline;
+  vertical-align: middle;
+  padding: 0 10px;
+  font-size: 32px;
+  font-weight: normal;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: #fff;
+}
+
+.nav-items-current{
+  background-color: #d3d3d3;
+}
+
+.nav-items:hover{
+  background-color: #d3d3d3;
+}
+
+.nav-items-current:hover{
+  background-color: #c0c0c0;
+}
+
+.nav-items a, .title a{
+  text-decoration: none;
+  color:#000;
 }
 
 .button{
@@ -49,48 +77,50 @@ body {
 
 .toptext{
   display:block;
-  margin: 50px 50px;
+  margin: 40px 50px;
   font-size: 64px;
   font-weight:600;
   color:black;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
 }
 
 .image{
   filter:opacity(100%);
-  margin:0 auto;
   text-align: center;
   padding: 20px 10px;
+  margin: -80px auto;
 }
 
 .box{
-  position:relative;
   width:100%;
+<<<<<<< HEAD
   height:1300px;
+=======
+>>>>>>> fff827ad0d9e49e4c2c397ddbaa0cfda280a7b5f
   margin:0 auto;
   padding: 0;
   display:block;
+  overflow: hidden;
 }
 
 .box .left{
   width:50%;
-  height:100%;
-  padding:48px;
-  float:left;
-  
+  padding:2px 48px;
+  display:table-cell;
+  vertical-align: top;
 }
 
 .box .right{
   width:50%;
-  height:100%;
   padding:180px 100px;
-  float:left;
+  display:table-cell
 }
 
 .port{
   text-align: left;
   margin:0 auto;
-  height:100%;
+  /* height:100%; */
   background-color:white;
   box-shadow:6px 6px 30px #9090905e;
   padding: 60px 48px;
@@ -107,6 +137,6 @@ body {
 }
 
 .port button{
-  position:absolute;
-  bottom: 18%;
+  display: block;
+  margin-top:20px;
 }

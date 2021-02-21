@@ -20,14 +20,9 @@ use HackSC\UserSystem;
   <body>
     <div class="header">
         <div class="icon">
-<<<<<<< HEAD:list.html
-            <!-- <img src="img/lipstickLogo.png" alt="lipstick icon" height="50"> -->
-            <div class="title">LIPSTICK STORE</div>
-=======
-            <img src="img/lipstickLogo.png" alt="lipstick icon" height="50">
+            <!-- img src="img/lipstickLogo.png" alt="lipstick icon" height="50" -->
             <div class="title"><a href="index.php">LIPSTICK STORE</a></div>
             <div class="nav-items nav-items-current">Lipstick Lists</div>
->>>>>>> 92a3b464afdc3682f6f46473fb856d21d86ebb0c:list.php
         </div>
         <div class="menu">
             <button class="button">
@@ -41,6 +36,9 @@ use HackSC\UserSystem;
                 <i class="iconfont icon-touxiang"></i>
             </button>
             <?php }else{ ?>
+                <button onclick="window.location.href = './user.php'" class="button">
+                <i class="iconfont icon-touxiang"></i>
+            </button>
             <button onclick="window.location.href = '?logout'" class="button">
                 <i class="iconfont icon-sign-out"></i>
             </button>

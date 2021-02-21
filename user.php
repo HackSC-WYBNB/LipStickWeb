@@ -1,3 +1,14 @@
+<?php
+include __DIR__ . '/vendor/autoload.php';
+use HackSC\UserSystem;
+use HackSC\PhotoStorage;
+
+if(!UserSystem::$iscurrentSessionLogin){
+  header('Location: signin.php?URL=user.php',true,302);
+  echo("<script>window.location.href='signin.php?URL=user.php';</script>");
+  exit("You must sign in before using this page, redirecting...");
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +27,8 @@
   <body>
     <div class="header">
         <div class="icon">
-            <div class="title">LIPSTICK STORE</div>
+            <div class="title"><a href="index.php">LIPSTICK STORE</a></div>
+            <div class="nav-items"><a href="list.php">Lipstick Lists</a></div>
         </div>
         <div class="menu">
             <button class="button">
@@ -25,12 +37,18 @@
             <button class="button">
                 <i class="iconfont icon-fasong"></i>
             </button>
-            <button onclick="window.location.href = './signin.php'" class="button">
-                <i class="iconfont icon-touxiang"></i>
-            </button>        
-            <button class="button">
-                <i class="iconfont icon-sign-out"></i>
-            </button>          
+            <?php if(!UserSystem::$iscurrentSessionLogin){ ?>
+                <button onclick="window.location.href = './signin.php?URL=index.php'" class="button">
+                    <i class="iconfont icon-touxiang"></i>
+                </button>
+            <?php }else{ ?>
+                <button class="button">
+                    <i class="iconfont icon-touxiang"></i>
+                </button>
+                <button onclick="window.location.href='?logout'" class="button">
+                    <i class="iconfont icon-sign-out"></i>
+                </button>
+             <?php } ?>
         </div>
     </div>
     <div class="box" style="background:url(img/bg.jpg);background-size:150%;

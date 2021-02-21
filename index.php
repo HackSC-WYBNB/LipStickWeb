@@ -35,6 +35,9 @@ use HackSC\UserSystem;
                         <i class="iconfont icon-touxiang"></i>
                     </button>
                 <?php }else{ ?>
+                    <button onclick="window.location.href = './user.php'" class="button">
+                        <i class="iconfont icon-touxiang"></i>
+                    </button>
                     <button onclick="window.location.href='?logout'" class="button">
                         <i class="iconfont icon-sign-out"></i>
                     </button>
