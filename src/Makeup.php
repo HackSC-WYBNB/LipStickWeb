@@ -8,7 +8,7 @@ class Makeup{
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS,
                 "image={$photoB64}&r={$rgba[0]}&g={$rgba[1]}&b={$rgba[2]}&a={$rgba[3]}");
-
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $server_output = curl_exec($ch);
