@@ -6,7 +6,7 @@ use HackSC\Makeup;
 use HackSC\PhotoStorage;
 use HackSC\UserSystem;
 
-$API_URL = 'http://localhost:5000/';
+$API_URL = empty(getenv('PYTHON_API')) ? 'http://localhost:5000/' : getenv('PYTHON_API');
 
 if(!UserSystem::$iscurrentSessionLogin){
     $returnArr = [
