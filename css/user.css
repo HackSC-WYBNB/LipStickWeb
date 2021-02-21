@@ -94,6 +94,10 @@ body {
 
 .box{
   width:100%;
+<<<<<<< HEAD
+  height:1300px;
+=======
+>>>>>>> fff827ad0d9e49e4c2c397ddbaa0cfda280a7b5f
   margin:0 auto;
   padding: 0;
   display:block;
