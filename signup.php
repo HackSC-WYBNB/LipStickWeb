@@ -32,10 +32,15 @@ ini_set("display_errors", 1);
 		}else{
 			$rEmail = trim($rEmail);
 			$rPassword = trim($rPassword);
-			$signupRst = UserSystem::register($rEmail,$rPassword);
-			if(!$signupRst){
-				$ignoreForm = false;
-				$formMsg = "there is an existing user with email " . $rEmail;
+			if(!filter_var($rEmail,FILTER_VALIDATE_EMAIL)){
+				$ignoreForm = False;
+				$formMsg = "Email format incorrect";
+			}else{
+				$signupRst = UserSystem::register($rEmail,$rPassword);
+				if(!$signupRst){
+					$ignoreForm = false;
+					$formMsg = "there is an existing user with email " . $rEmail;
+				}
 			}
 		}
 		if(!$ignoreForm){
