@@ -69,14 +69,12 @@ if(!UserSystem::$iscurrentSessionLogin){
             <?php
               $req_file = $_FILES['photoFile'];
               $photoToShow = null;
-              if(!empty($req_file)){
+              if(!empty($req_file) && $req_file['size'] <= 1024*1024*5){
                 $photoToShow = file_get_contents($req_file['tmp_name']);
-                if(strlen($photoToShow) > 1024*1024*5){
-                  echo "<p class=\"lead\">Image Size Submitted > 5MB!</p>";
-                  $photoToShow = null;
-                }else{
-                  PhotoStorage::saveUserImage(UserSystem::getCurrentLoginEmail(),$photoToShow);
-                }
+                PhotoStorage::saveUserImage(UserSystem::getCurrentLoginEmail(),$photoToShow);
+              }else if(!empty($req_file) && $req_file['size'] > 1024*1024*5){
+                echo "<p class=\"lead\">Image Size Submitted > 5MB!</p>";
+                $photoToShow = PhotoStorage::getUserImage(UserSystem::getCurrentLoginEmail());
               }else{
                 $photoToShow = PhotoStorage::getUserImage(UserSystem::getCurrentLoginEmail());
               }
