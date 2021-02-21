@@ -6,8 +6,8 @@ use HackSC\UserSystem;
 error_reporting(E_ERROR);
 ini_set("display_errors", 1);
 if(!UserSystem::$iscurrentSessionLogin){
-    header('Location: signin.php?URL=try_lipstick.php',true,302);
-    echo("<script>window.location.href='signin.php?URL=try_lipstick.php';</script>");
+    header('Location: signin.php?URL=list.php',true,302);
+    echo("<script>window.location.href='signin.php?URL=list.php';</script>");
     exit("You must sign in before using this page, redirecting...");
 }
 $colorLimit = 8;
