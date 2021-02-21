@@ -3,7 +3,7 @@ namespace HackSC;
 class Setting{
     public static $DBName = '';
     public static $HOST = '';
-    public static $PORT = 3306;
+    public static int $PORT = 3306;
     public static $USERNAME = '';
     public static $PASSWORD = '';
 
