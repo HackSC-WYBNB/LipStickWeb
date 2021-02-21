@@ -34,7 +34,7 @@ class GlobalConn{
             self::$database->mysqli()->query(
                 'CREATE TABLE IF NOT EXISTS `photos` (
                     `email` VARCHAR(50) NOT NULL,
-                    `photo` BLOB NOT NULL
+                    `photo` MEDIUMBLOB NOT NULL
                 );'
             );
         }

@@ -56,6 +56,7 @@ if($lipStick !== null){
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-wide.css" />
 		</noscript>
+		<link rel="stylesheet" href="css/bubbleStyle.css">
 	</head>
 	<body>
 		<!-- Loading -->
@@ -109,7 +110,7 @@ if($lipStick !== null){
 									<?php if($lipStick !== null){ ?>
 									<p>You are currently trying the <?php echo $lipStick->series; ?> series from <?php echo $lipStick->brand; ?></p>
 									<?php } ?>
-									<link rel="stylesheet" href="css/BubbleStyle.css">
+									
 									<div class="color-picker"></div>
 									<script src="js/BubbleScript.js"></script>
 									<script src="./js/axios.0.021.1.min.js"></script>
