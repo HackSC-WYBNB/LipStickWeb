@@ -80,7 +80,7 @@ use HackSC\LipStick;
             }
             function generateItemWithLipstickObj(LipStick $lipStick,?string $tryOnLink = null) : void{
                 $title = $lipStick->brand . '-' . $lipStick->series . (empty($lipStick->price) ? '' : '(' . $lipStick->price . ')');
-                $description = 'This color is from the ' . $lipStick->series . ' series from ' . $lipStick->brand . ', ' . (empty($lipStick->price) ? 'and there\s no price details available' : 'and it costs ' . $lipStick->price);
+                $description = 'This color is from the ' . $lipStick->series . ' series from ' . $lipStick->brand . ', ' . (empty($lipStick->price) ? 'and there\'s no price details available' : 'and it costs ' . $lipStick->price);
                 generateItem($lipStick->r,$lipStick->g,$lipStick->b,1.0,$title,$description,$tryOnLink,$lipStick->serialize());
             }
             ?>
