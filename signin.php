@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+
+use HackSC\Setting;
 use HackSC\UserSystem;
 ?>
 <!doctype html>
@@ -28,7 +30,7 @@ use HackSC\UserSystem;
 		if(empty($rEmail) && empty($rPassword)){
 	  ?>
 	  <form action="" method="post">
-	    <img class="mb-4" src="" alt="" width="72" height="57">
+	    <img class="mb-4" src="./img/lipstickLogo.png" alt="" width="72" height="57">
 	    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 	    <label for="inputEmail" class="visually-hidden">Username</label>
 	    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
@@ -41,7 +43,7 @@ use HackSC\UserSystem;
 	    </div>
 	    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 	    <p class="text-link">
-			<a href="signup.html">Doesn't have an account?</a>
+			<a href="signup.php<?php if(isset($_GET['URL'])){ echo "?URL=" . $_GET['URL']; } ?>">Doesn't have an account?</a>
 		</p>
 	    <p class="mt-5 mb-3 text-muted">&copy; 2021.2.19</p>
 	  </form>
@@ -50,14 +52,15 @@ use HackSC\UserSystem;
 			$rEmail = trim($rEmail);
 			$rPassword = trim($rPassword);
 			if(empty($jumpBack)){
-				$jumpBack = "dashboard.php";
+				$jumpBack = "index.php";
 			}
 			$pwdRst = UserSystem::checkPassword($rEmail,$rPassword);
 			$ctime = time();
 			if($pwdRst){
 				$TokenDuration = 3600 * 24;
 				$newToken = UserSystem::createToken($rEmail,$ctime,$TokenDuration);
-				setcookie('token',$newToken,$TokenDuration);
+				setcookie('token',$newToken,$ctime + $TokenDuration,'/',Setting::TOKEN_DOMAIN);
+				setcookie('email',$rEmail,$ctime + $TokenDuration,'/', Setting::TOKEN_DOMAIN);
 			?>
 				<h1 class="h3 mb-3 fw-normal">Successfully landed, now redirecting you to the page before login</h1>
 			<?php

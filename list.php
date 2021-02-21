@@ -1,3 +1,7 @@
+<?php
+include __DIR__ . '/vendor/autoload.php';
+use HackSC\UserSystem;
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,8 +20,14 @@
   <body>
     <div class="header">
         <div class="icon">
+<<<<<<< HEAD:list.html
             <!-- <img src="img/lipstickLogo.png" alt="lipstick icon" height="50"> -->
             <div class="title">LIPSTICK STORE</div>
+=======
+            <img src="img/lipstickLogo.png" alt="lipstick icon" height="50">
+            <div class="title"><a href="index.php">LIPSTICK STORE</a></div>
+            <div class="nav-items nav-items-current">Lipstick Lists</div>
+>>>>>>> 92a3b464afdc3682f6f46473fb856d21d86ebb0c:list.php
         </div>
         <div class="menu">
             <button class="button">
@@ -26,12 +36,15 @@
             <button class="button">
                 <i class="iconfont icon-fasong"></i>
             </button>
-            <button onclick="window.location.href = './signin.php'" class="button">
+            <?php if(!UserSystem::$iscurrentSessionLogin){ ?>
+            <button onclick="window.location.href = './signin.php?URL=list.php'" class="button">
                 <i class="iconfont icon-touxiang"></i>
-            </button>        
-            <button class="button">
+            </button>
+            <?php }else{ ?>
+            <button onclick="window.location.href = '?logout'" class="button">
                 <i class="iconfont icon-sign-out"></i>
-            </button>          
+            </button>
+            <?php } ?>
         </div>
     </div>
     <div class="library">

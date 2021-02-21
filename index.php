@@ -1,3 +1,7 @@
+<?php
+include __DIR__ . '/vendor/autoload.php';
+use HackSC\UserSystem;
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +20,9 @@
       <div class="header">
             <div class="icon">
                 <div class="title">LIPSTICK STORE</div>
+                <div class="nav-items"><a href="list.php">Lipstick Lists</a></div>
             </div>
+            
             <div class="menu">
                 <button class="button">
                     <i class="iconfont icon-chaxun"></i>
@@ -24,12 +30,15 @@
                 <button class="button">
                     <i class="iconfont icon-fasong"></i>
                 </button>
-                <button onclick="window.location.href = './signin.php'" class="button">
-                    <i class="iconfont icon-touxiang"></i>
-                </button>       
-                <button class="button">
-                    <i class="iconfont icon-sign-out"></i>
-                </button>           
+                <?php if(!UserSystem::$iscurrentSessionLogin){ ?>
+                    <button onclick="window.location.href = './signin.php?URL=index.php'" class="button">
+                        <i class="iconfont icon-touxiang"></i>
+                    </button>
+                <?php }else{ ?>
+                    <button onclick="window.location.href='?logout'" class="button">
+                        <i class="iconfont icon-sign-out"></i>
+                    </button>
+                <?php } ?>
             </div>
         </div>
         <div class="box">
@@ -40,7 +49,7 @@
                 </p>
                 <button onclick="window.location.href = './signup.php'" class="signup lead">
                     SignUp now!
-                </button>                 
+                </button>
             </div>
             <div class= "right" style="background:url(img/main.jpg);background-size:100%;
             background-position:center;">
