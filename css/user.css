@@ -31,6 +31,34 @@ body {
   font-size: 32px;
   font-weight:bolder;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-right: 3px solid #000;
+}
+
+.nav-items{
+  display:inline;
+  vertical-align: middle;
+  padding: 0 10px;
+  font-size: 32px;
+  font-weight: normal;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: #fff;
+}
+
+.nav-items-current{
+  background-color: #d3d3d3;
+}
+
+.nav-items:hover{
+  background-color: #d3d3d3;
+}
+
+.nav-items-current:hover{
+  background-color: #c0c0c0;
+}
+
+.nav-items a, .title a{
+  text-decoration: none;
+  color:#000;
 }
 
 .button{
