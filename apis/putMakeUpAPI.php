@@ -51,7 +51,6 @@ if(!PhotoStorage::isUserImage(UserSystem::getCurrentLoginEmail())){
             $returnArr = [
                 'errNo' => 0,
                 'data' => [
-                    'original' => $uploadedPhotoB64,
                     'after' => $finishedPhotoB64
                 ]
             ];
