@@ -4,22 +4,28 @@
 */
 
 function callToMakeUpAPI(r,g,b,a,successFunction, failedFunction){
-    axios.post('/apis/putMakeUpAPI.php',{
-        'r': r,
-        'g': g,
-        'b': b,
-        'a': a
-    }).then(function (response){
+    r = parseInt(r);
+    g = parseInt(g);
+    b = parseInt(b);
+    a = parseInt(a);
+    let params = new URLSearchParams();
+    params.append('r',r);
+    params.append('g',g);
+    params.append('b',b);
+    params.append('a',a);
+    axios.post('/apis/putMakeUpAPI.php',params).then(function (response){
         if(response.status !== 200){
             failedFunction(4,'Internal Server Error');
         }
-        responseJSON = JSON.parse(response.data);
+        responseJSON = response.data
         if(responseJSON.errNo !== 0){
             failedFunction(responseJSON.errNo,responseJSON.description);
         }else{
+            console.log(responseJSON.data.after);
             successFunction(responseJSON.data.original,responseJSON.data.after);
         }
     }).catch(function (error){
-        failedFunctions(5,'Network Error');
+        console.log(error);
+        failedFunction(5,'Network Error');
     });
 }

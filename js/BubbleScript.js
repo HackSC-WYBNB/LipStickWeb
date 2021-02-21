@@ -6,7 +6,6 @@
 	Have fun with it!
 
 */
-
 var colorPicker = (function(){
 	
 	var config = {
@@ -23,20 +22,46 @@ var colorPicker = (function(){
 		darkModifier: 0,
 		transitionDuration: 200,
 		transitionDelay: 25,
-		variationTotal: 10
+		variationTotal: 10,
+		showVariants: false,
+		responseFunc: null
 	};
 	
 	var state = {
 		activeColor: [0, 0, 0]
 	};
 	
-	function init(){
+	function init(baseColors, activeColor, functionResponse){
+		if(baseColors !== undefined && baseColors !== null){
+			config.baseColors = baseColors;
+		}
+		if(activeColor !== undefined && activeColor !== null){
+			state.activeColor = activeColor;
+		}else{
+			state.activeColor = [0,0,0];
+		}
+		if(functionResponse !== undefined && functionResponse !== null){
+			config.responseFunc = functionResponse;
+		}else{
+			config.responseFunc = null;
+		}
 		createColorPicker(function(){
 			appendBaseColors();
 		});
-		
 		addEventListeners();
-		
+		if(functionResponse !== undefined && functionResponse !== null && activeColor !== undefined && activeColor !== null){
+			functionResponse(activeColor);
+		}
+		if(activeColor !== undefined && activeColor !== null && config.showVariants){
+			console.log(activeColor);
+			hideVariations(function(){
+				createVariations(activeColor, function(){
+					setDelays(function(){
+						showVariations();
+					});
+				});
+			});
+		}
 	}
 	
 	function setActiveBaseColor(el){
@@ -53,21 +78,25 @@ var colorPicker = (function(){
 	function addEventListeners(){
 		$('body').on('click', '.color', function(){
 			var color = $(this).data('color').split(',');
-			//setActiveBaseColor($(this));
-			
-			hideVariations(function(){
-				createVariations(color, function(){
-					setDelays(function(){
-						showVariations();
+			if(config.responseFunc !== null && config.responseFunc !== undefined){
+				config.responseFunc(color);
+			}
+			if(config.showVariants){
+				hideVariations(function(){
+					createVariations(color, function(){
+						setDelays(function(){
+							showVariations();
+						});
 					});
 				});
-			});
+			}
+			setActiveBaseColor($(this));
 		});
 		
-		//$('body').on('click', '.color-var', function(){
-			//setActiveColor($(this));
+		$('body').on('click', '.color-var', function(){
+			setActiveColor($(this));
 			//setBackgroundColor();
-		//});
+		});
 	}
 	
 	function setFirstColorActive(callback){
@@ -92,7 +121,11 @@ var colorPicker = (function(){
 	
 	function appendBaseColors(){
 		for(i = 0; i < config.baseColors.length; i++){
-			$('.base-colors').append('<div class="color" data-color="' + config.baseColors[i].join() + '" style="background-color: rgb(' + config.baseColors[i].join() + ');"></div>');
+			if(state.activeColor.join() == config.baseColors[i].join()){
+				$('.base-colors').append('<div class="color active" data-color="' + config.baseColors[i].join() + '" style="background-color: rgb(' + config.baseColors[i].join() + ');"></div>');
+			}else{
+				$('.base-colors').append('<div class="color" data-color="' + config.baseColors[i].join() + '" style="background-color: rgb(' + config.baseColors[i].join() + ');"></div>');
+			}
 		}
 	};
 	
@@ -155,5 +188,3 @@ var colorPicker = (function(){
 	};
 	
 }());
-
-colorPicker.init();

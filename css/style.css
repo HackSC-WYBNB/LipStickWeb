@@ -92,8 +92,13 @@
 	}
 
 	header.major {
+		color: #f1f1f1;
 		padding-bottom: 3em;
 		text-transform: uppercase;
+	}
+
+	header.major *{
+		color: #f1f1f1;
 	}
 
 		header.major h2 {
@@ -589,6 +594,7 @@
 
 		#footer .major h2,
 		#footer .major .byline {
+			text-align: center;
 			color: #FFF !important;
 		}
 
@@ -602,12 +608,13 @@
 	}
 
 /* Sidebar */
-
 	#sidebar .major {
+		padding-top: 60px;
 		padding-bottom: 2em;
 	}
 
 		#sidebar .major h2 {
+			text-align:center;
 			font-size: 1.8em;
 		}
 
@@ -631,7 +638,7 @@
 
 	.box {
 		padding: 0em 2em 2em 2em;
-		background: #FFF;
+		background: rgba(255,255,255,0.2);
 		text-align: center;
 		border-radius: 0px 0px 6px 6px;
 	}

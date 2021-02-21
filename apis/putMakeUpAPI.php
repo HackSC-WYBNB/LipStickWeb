@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use HackSC\LipStick;
 use HackSC\Makeup;
@@ -25,8 +25,9 @@ if(!PhotoStorage::isUserImage(UserSystem::getCurrentLoginEmail())){
     $uploadedRGBA = [$_POST['r'],$_POST['g'],$_POST['b'],$_POST['a']];
     if(count($uploadedRGBA) === 4){
         $foundErr = false;
-        foreach($uploadedRGBA as $rgba){
-            if(is_int($rgba) && $rgba >= 0 && $rgba <= 255){
+        foreach($uploadedRGBA as &$rgba){
+            $rgba = intval($rgba);
+            if($rgba >= 0 && $rgba <= 255){
                 
             }else{
                 $foundErr = true;

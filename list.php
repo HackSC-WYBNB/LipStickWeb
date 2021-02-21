@@ -87,7 +87,7 @@ use HackSC\LipStick;
             <?php
                 $lipstickList = LipSticks::getLipstickLists();
                 foreach($lipstickList as $lipstick){
-                    generateItemWithLipstickObj($lipstick,'conceptVerification.php');
+                    generateItemWithLipstickObj($lipstick,'try_lipstick.php');
                 }
             ?>
         </ul>
