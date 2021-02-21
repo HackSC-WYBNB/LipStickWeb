@@ -58,7 +58,7 @@ body {
 
 .image{
   filter:opacity(100%);
-  margin:0 auto;
+  margin:-20px auto;
   text-align: center;
   padding: 20px 10px;
 }
@@ -66,7 +66,6 @@ body {
 .box{
   position:relative;
   width:100%;
-  height:100%;
   margin:0 auto;
   padding: 0;
   display:block;
@@ -74,23 +73,20 @@ body {
 
 .box .left{
   width:50%;
-  height:100%;
   padding:48px;
-  float:left;
-  
+  display:table-cell
 }
 
 .box .right{
   width:50%;
-  height:100%;
   padding:180px 100px;
-  float:left;
+  display:table-cell
 }
 
 .port{
   text-align: left;
   margin:0 auto;
-  height:100%;
+  /* height:100%; */
   background-color:white;
   box-shadow:6px 6px 30px #9090905e;
   padding: 60px 48px;
@@ -107,6 +103,6 @@ body {
 }
 
 .port button{
-  position:absolute;
-  bottom: 18%;
+  display: block;
+  margin-top:20px;
 }
