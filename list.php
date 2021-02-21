@@ -1,6 +1,8 @@
 <?php
 include __DIR__ . '/vendor/autoload.php';
 use HackSC\UserSystem;
+use HackSC\LipSticks;
+use HackSC\LipStick;
 ?>
 <!doctype html>
 <html lang="en">
@@ -47,54 +49,47 @@ use HackSC\UserSystem;
     </div>
     <div class="library">
         <ul class="grid">
-            <li class="article cell">
-                <div class="image o1">
-                </div>
-                <div class="content">
-                    <div class="content-headline">
-                        #6759FF
+            <?php
+            function generateItem(int $colorR, int $colorG, int $colorB, float $colorADec, string $headline, string $description, ?string $tryLink = null, ?string $serializedLipstick = null) : void{
+                $color = 'rgba(' . $colorR . ',' . $colorG . ',' . $colorB . ',' . $colorADec . ')';
+            ?>
+                <li class="article cell">
+                    <div class="image" style="background-color:<?php echo $color; ?>;">
                     </div>
-                    <div class="content-des">
-                        This color is frequently used by victoria secret's super model.
+                    <div class="content">
+                        <div class="content-headline">
+                            <?php echo $headline; ?>
+                        </div>
+                        <div class="content-des">
+                            <p><?php echo $description; ?></p>
+                            <?php if(!empty($tryLink)){ ?>
+                            <form action="<?php echo $tryLink; ?>" method="post">
+                                <?php if(!empty($serializedLipstick)){ ?>
+                                    <input type="hidden" name="lipstick" value="<?php echo urlencode($serializedLipstick); ?>" />
+                                    <input type="hidden" name="r" value="<?php echo $colorR; ?>" />
+                                    <input type="hidden" name="g" value="<?php echo $colorG; ?>" />
+                                    <input type="hidden" name="b" value="<?php echo $colorB; ?>" />
+                                <?php } ?>
+                                <input type="submit" value="Try it on!" />
+                            </form>
+                            <?php } ?>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="article cell">
-                <div class="image o2">
-                </div>
-                <div class="content">
-                    <div class="content-headline">
-                        #2345DF
-                    </div>
-                    <div class="content-des">
-                        This color is frequently used by your ex-girlfriend.
-                    </div>
-                </div>
-            </li>
-            <li class="article cell">
-                <div class="image o3">
-                </div>
-                <div class="content">
-                    <div class="content-headline">
-                        #A435DF
-                    </div>
-                    <div class="content-des">
-                        This color is frequently used by your mother.
-                    </div>
-                </div>
-            </li>
-            <li class="article cell">
-                <div class="image o4">
-                </div>
-                <div class="content">
-                    <div class="content-headline">
-                        #2BD34F
-                    </div>
-                    <div class="content-des">
-                        This color is frequently used by your daughter.
-                    </div>
-                </div>
-            </li>
+                </li>
+            <?php
+            }
+            function generateItemWithLipstickObj(LipStick $lipStick,?string $tryOnLink = null) : void{
+                $title = $lipStick->brand . '-' . $lipStick->series . (empty($lipStick->price) ? '' : '(' . $lipStick->price . ')');
+                $description = 'This color is from the ' . $lipStick->series . ' series from ' . $lipStick->brand . ', ' . (empty($lipStick->price) ? 'and there\s no price details available' : 'and it costs ' . $lipStick->price);
+                generateItem($lipStick->r,$lipStick->g,$lipStick->b,1.0,$title,$description,$tryOnLink,$lipStick->serialize());
+            }
+            ?>
+            <?php
+                $lipstickList = LipSticks::getLipstickLists();
+                foreach($lipstickList as $lipstick){
+                    generateItemWithLipstickObj($lipstick,'conceptVerification.php');
+                }
+            ?>
         </ul>
     </div>
 

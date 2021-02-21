@@ -122,22 +122,7 @@ body {
   background: 0 0;
   box-sizing: border-box;
   display: block;
-}
-
-.o1{
-  background:rgba(231, 28, 28, 0.808);
-}
-
-.o2{
-  background:rgba(133, 28, 231, 0.808);
-}
-
-.o3{
-  background:rgba(195, 104, 43, 0.808);
-}
-
-.o4{
-  background:rgba(219, 44, 44, 0.897);
+  height: 100px;
 }
 
 .image img{
@@ -174,16 +159,23 @@ body {
 }
 
 
-@media (min-width:840px){
-  .image{
-    height:30vw;
-  }
+@media (min-width:1024px){
   .grid {
     grid-template-columns: repeat(12,minmax(0,1fr));    
   }
   .cell{
     width: auto;
-    grid-column-end: span 6;
+    grid-column-end: span 2;
+  }
+}
+
+@media (min-width:840px) and (max-width:1023px){
+  .grid {
+    grid-template-columns: repeat(12,minmax(0,1fr));    
+  }
+  .cell{
+    width: auto;
+    grid-column-end: span 3;
   }
 }
 
