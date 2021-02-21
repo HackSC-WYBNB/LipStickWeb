@@ -1,5 +1,7 @@
 <?php
 include __DIR__ . '/vendor/autoload.php';
+
+use HackSC\Makeup;
 use HackSC\UserSystem;
 use HackSC\PhotoStorage;
 
@@ -63,13 +65,38 @@ if(!UserSystem::$iscurrentSessionLogin){
             </div>
         </div>
         <div class="right">
-            <form class="port">
-                <div class="input">Username</div>
-                <input type="text" class="form-control" id="username" placeholder="Enter your username">
+            <?php
+              $req_file = $_FILES['photoFile'];
+              $photoToShow = null;
+              if(!empty($req_file)){
+                $photoToShow = file_get_contents($req_file['tmp_name']);
+                if(strlen($photoToShow) > 1024*1024*5){
+                  echo "<p class=\"lead\">Image Size Submitted > 5MB!</p>";
+                  $photoToShow = null;
+                }else{
+                  PhotoStorage::saveUserImage(UserSystem::getCurrentLoginEmail(),$photoToShow);
+                }
+              }else{
+                $photoToShow = PhotoStorage::getUserImage(UserSystem::getCurrentLoginEmail());
+              }
+            ?>
+            <form class="port" target="" method="post" enctype="multipart/form-data">
+                <!-- div class="input">Username</div>
+                <input type="text" class="form-control" id="username" placeholder="Enter your username" -->
                 <div class="input">Email</div>
-                <input type="text" class="form-control" id="email" placeholder="Enter your email">
-                <div class="input">Gender</div>
-                <div class="form-check form-check-inline">
+                <input type="text" disabled class="form-control" id="email" name="email" placeholder="Enter your email" value="<?php echo UserSystem::getCurrentLoginEmail(); ?>">
+                <p class="lead">Existing Photo:</p>
+                <?php
+                if($photoToShow !== null){
+                  $imageB64 = base64_encode($photoToShow);
+                  echo Makeup::imageAsTag($imageB64,'100%');
+                }else{
+                  echo "<p>No existing Images</p>";
+                }
+                ?>
+
+                <!-- div class="input">Gender</div>
+                  <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">Male</label>
                   </div>
@@ -81,9 +108,10 @@ if(!UserSystem::$iscurrentSessionLogin){
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
                     <label class="form-check-label" for="inlineRadio3">Other</label>
                   </div>
+                </div -->
                     <div class="form-group">
                       <label for="exampleFormControlFile1" class="input">Upload Photo</label>
-                      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                      <input type="file" name="photoFile" class="form-control-file" id="photoFile">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
